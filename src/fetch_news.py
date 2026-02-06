@@ -3,8 +3,6 @@
 from pathlib import Path
 from datetime import date
 
-from pathlib import Path
-from datetime import date
 
 # Paths
 TEMPLATE_PATH = Path("templates/daily-news-template.md")
