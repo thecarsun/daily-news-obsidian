@@ -19,6 +19,26 @@ The goal is to stay meaninfully informed while reducing the noise and distractio
 
 ## Architecture
 
+```
+┌──────────────┐
+│ News API     │
+└──────┬───────┘
+       ↓
+┌──────────────┐
+│ Python Script│
+└──────┬───────┘
+       ↓
+┌──────────────┐
+│ Obsidian     │
+│ Daily Note   │ (.md file)
+└──────┬───────┘
+       ↓
+┌──────────────┐
+│ GitHub       │
+│ Actions      │
+└──────────────┘
+```
+
 ┌──────────────┐
 │ News API     │  
 └──────┬───────┘
