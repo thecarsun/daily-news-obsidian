@@ -3,66 +3,36 @@
 from pathlib import Path
 from datetime import date
 import requests
-import response
-
+import os
 
 # Paths
 TEMPLATE_PATH = Path("templates/daily-news-template.md")
 OUTPUT_DIR = Path("vault/daily")
 
 def get_news_from_api():
-    api_key = "pub_ef1790d6e67e436bbf66d10388deb1fc"
-    url = "https://newsdata.io/api/1/latest?apikey=YOUR_API_KEY&q=US%20News"
+    api_key = os.getenv("NEWSDATA_API_KEY") or "pub_ef1790d6e67e436bbf66d10388deb1fc"
+    url = "https://newsdata.io/api/1/latest"
+
     params = {
-        "country": "US",
-        "pageSize": 5,
-        "apiKey": api_key
+        "apikey": api_key,
+        "q": "US news",
+        "language": "en",
+        "size": 5,
     }
 
     response = requests.get(url, params=params)
-    data - response.json()
+    data = response.json()
 
     news_items = []
-    for ariticle in data.get("articles", []):
+    for article in data.get("results", []):
         news_items.append({
-            "title": article["title"],
-            "source": article["source"]["name"]
-            "url": article["url"],
+            "title": article.get("title", "No title"),
+            "source": article.get("source_id", "Unknown"),
+            "url": article.get("link", ""),
             "summary": article.get("description", "")
         })
 
-    return news_items[
-        {
-            "title": "AI accelerates drug discovery",
-            "source": "Nature",
-            "url": "https://example.com/ai-drug-discovery",
-            "summary": "Researchers report faster compound screening using AI models."
-        },
-        {
-            "title": "Cloud costs continue to rise",
-            "source": "TechCrunch",
-            "url": "https://example.com/cloud-costs",
-            "summary": "Enterprises reassess cloud strategies amid rising costs."
-        },
-        {
-            "title": "New battery tech shows promise",
-            "source": "IEEE Spectrum",
-            "url": "https://example.com/battery-tech",
-            "summary": "Solid-state batteries move closer to mass production."
-        },
-        {
-            "title": "Regulators eye AI governance",
-            "source": "Reuters",
-            "url": "https://example.com/ai-regulation",
-            "summary": "Governments propose new frameworks for AI oversight."
-        },
-        {
-            "title": "Remote work enters new phase",
-            "source": "Harvard Business Review",
-            "url": "https://example.com/remote-work",
-            "summary": "Hybrid work models stabilize across industries."
-        },
-    ]
+    return news_items
 
 def render_news_items(news):
     blocks = []
@@ -82,7 +52,7 @@ def main():
     template = TEMPLATE_PATH.read_text(encoding="utf-8")
 
     content = template.replace("{{date}}", today)
-    content = content.replace("{{source}}", "mock-news")
+    content = content.replace("{{source}}", "newsdata.io")
     content = content.replace("{{news_items}}", render_news_items(news))
 
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -93,5 +63,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
