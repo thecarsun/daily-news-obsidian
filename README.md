@@ -8,13 +8,13 @@ a daily Markdown note in my Obsidian vault containing article titles, links, and
 The pipeline runs hands-off via scheduled CI/CD (GitHub Actions), keeping me informed with the top 5 relevant news items without 
 having to manually check multiple sources. 
 
-The goal is to stay meaningfully informed while reducing the noise and distractions of social media, news aggregators, and ads *sorry ads, much love*
+The goal is to stay meaningfully informed while reducing the noise and distractions of social media, news aggregators, and ads (*sorry ads, much love*)
 
 ## WHAT
 
-- A simple automated pipline that pulls **top 5** news articles from a news publc API *so you don't have to*
+- A simple automated pipline that pulls **top 5** news articles from a news API *so you don't have to*
 - A simple daily ``Markdown`` note will get generated with the **top 5** news article and their title/links/sources
-- The note will automatically drop into my Obsidian vault 
+- The generated daily-news note will automatically drop into my Obsidian vault 
 - Runs hands-off via (scheduled) CI/CD (Github Actions)
 
 ## ARCHETECTURE
@@ -43,7 +43,7 @@ The goal is to stay meaningfully informed while reducing the noise and distracti
 - Python (data fetching/processing)
 - Markdown (note formatting)
 - GitHub Actions (automation)
-- News API (news source)
+- News API (news source) - I've used [NEWSDATA.IO](https://newsdata.io/) for this project, there are many other news APIs available that could be used as well.
 - Obsidian (for daily top 5 news generateion output)
 
 
@@ -74,4 +74,4 @@ The goal is to stay meaningfully informed while reducing the noise and distracti
 ## MOOD
 Happy 😁
 
-*If you like this project and want to see more, please let me know! Feel free to reach out with any feedback/questions/suggestions*
+*If you like this project and want to see more, please let me know! Feel free to reach out with any feedback/questions/suggestions. Thank you* 
