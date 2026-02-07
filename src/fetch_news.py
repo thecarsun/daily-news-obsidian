@@ -2,14 +2,36 @@
 
 from pathlib import Path
 from datetime import date
+import requests
+import response
 
 
 # Paths
 TEMPLATE_PATH = Path("templates/daily-news-template.md")
 OUTPUT_DIR = Path("vault/daily")
 
-def get_mock_news():
-    return [
+def get_news_from_api():
+    api_key = "pub_ef1790d6e67e436bbf66d10388deb1fc"
+    url = "https://newsdata.io/api/1/latest?apikey=YOUR_API_KEY&q=US%20News"
+    params = {
+        "country": "US",
+        "pageSize": 5,
+        "apiKey": api_key
+    }
+
+    response = requests.get(url, params=params)
+    data - response.json()
+
+    news_items = []
+    for ariticle in data.get("articles", []):
+        news_items.append({
+            "title": article["title"],
+            "source": article["source"]["name"]
+            "url": article["url"],
+            "summary": article.get("description", "")
+        })
+
+    return news_items[
         {
             "title": "AI accelerates drug discovery",
             "source": "Nature",
@@ -55,7 +77,7 @@ def render_news_items(news):
 
 def main():
     today = date.today().isoformat()
-    news = get_mock_news()
+    news = get_news_from_api()
 
     template = TEMPLATE_PATH.read_text(encoding="utf-8")
 
