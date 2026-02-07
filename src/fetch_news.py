@@ -10,7 +10,7 @@ TEMPLATE_PATH = Path("templates/daily-news-template.md")
 OUTPUT_DIR = Path("vault/daily")
 
 def get_news_from_api():
-    api_key = os.getenv("NEWSDATA_API_KEY") or "pub_ef1790d6e67e436bbf66d10388deb1fc"
+    api_key = "pub_ef1790d6e67e436bbf66d10388deb1fc"
     url = "https://newsdata.io/api/1/latest"
 
     params = {
@@ -22,11 +22,12 @@ def get_news_from_api():
 
     response = requests.get(url, params=params)
     data = response.json()
+    results = data.get("results")
 
     news_items = []
     for article in data.get("results", []):
         news_items.append({
-            "title": article.get("title", "No title"),
+            "title": article.get("title", "title"),
             "source": article.get("source_id", "Unknown"),
             "url": article.get("link", ""),
             "summary": article.get("description", "")
