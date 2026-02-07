@@ -47,16 +47,12 @@ The goal is to stay meaningfully informed while reducing the noise and distracti
 - Obsidian (for daily top 5 news generateion output)
 
 
-## Future
+## FUTURE
 - LLM summarization 
 - Topic clustering
 - Bias comparision (same story, different outlets)
 - Weekly rollups 
-- .. and more...
-
-## STATUS
-Completed my first iteration of the pipeline! 
-It successfully generation of daily top 5 news articles at a scheduled time
+- .. and more... 
 
 ## RETROSPECTIVE/LEARNINGS
 - Obsidian Vault and GitHub Repo: 
@@ -72,6 +68,10 @@ It successfully generation of daily top 5 news articles at a scheduled time
     - It's easy to set up and manage with a simple YAML configuration file.
     - It provides built-in logging and monitoring for the scheduled tasks.
 
+## STATUS
+- Succssfully completed and achieved the goal and purpose of this project!
+
 ## MOOD
 Happy 😁
-**If you like this project and want to see more, please let me know! Feel free to reach out with any feedback/questions/suggestions**
+
+*If you like this project and want to see more, please let me know! Feel free to reach out with any feedback/questions/suggestions*
