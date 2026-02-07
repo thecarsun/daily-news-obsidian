@@ -8,9 +8,10 @@ import os
 # ---------------------------
 # Paths
 # ---------------------------
+VAULT_ROOT = Path(r"C:\Users\carol\thecarsun\daily-news-obsidian")
+TEMPLATE_PATH = VAULT_ROOT / "templates" / "daily-news-template.md"
+OUTPUT_DIR = VAULT_ROOT / "daily"
 
-TEMPLATE_PATH = Path("templates/daily-news-template.md")
-OUTPUT_DIR = Path("vault/daily")
 
 # ---------------------------
 # Ensure template exists
@@ -118,7 +119,7 @@ def main():
 
     output_file = OUTPUT_DIR / f"{today}.md"
     output_file.write_text(content, encoding="utf-8")
-    print(f"✅ Daily news written to {output_file}")
+    print(f"✅ Daily news written to {output_file.resolve()}")
 
 # ---------------------------
 if __name__ == "__main__":
