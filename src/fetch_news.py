@@ -15,7 +15,7 @@ OUTPUT_DIR = VAULT_ROOT / "daily"
 
 
 # ---------------------------
-# Ensure template exists
+# Template
 # ---------------------------
 
 TEMPLATE_CONTENT = """# Daily News - {{date}}
@@ -33,7 +33,7 @@ if not TEMPLATE_PATH.exists():
     print(f"✅ Created template at {TEMPLATE_PATH}")
 
 # ---------------------------
-# Fetch news
+# Fetch
 # ---------------------------
 
 def get_news_from_api():
@@ -88,7 +88,7 @@ def get_news_from_api():
     return news_items  # ✅ must return a list
 
 # ---------------------------
-# Render Markdown
+# Markdown
 # ---------------------------
 
 def render_news_items(news):
