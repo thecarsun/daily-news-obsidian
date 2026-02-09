@@ -8,7 +8,8 @@ import os
 # ---------------------------
 # Paths
 # ---------------------------
-VAULT_ROOT = Path(r"C:\Users\carol\GitHub Repo\daily-news-obsidian")
+
+VAULT_ROOT = Path(r"C:\Users\Car\grepo\daily-news-obsidian")
 TEMPLATE_PATH = VAULT_ROOT / "templates" / "daily-news-template.md"
 OUTPUT_DIR = VAULT_ROOT / "daily"
 
