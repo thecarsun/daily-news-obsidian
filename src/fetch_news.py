@@ -9,9 +9,9 @@ import os
 # Paths
 # ---------------------------
 
-VAULT_ROOT = Path(r"C:\Users\Car\grepos\daily-news-obsidian")
-TEMPLATE_PATH = VAULT_ROOT / "templates" / "daily-news-template.md"
-OUTPUT_DIR = VAULT_ROOT / "daily"
+VAULT_ROOT = Path(__file__).resolve().parents[1]
+TEMPLATE_PATH = REPO_ROOT / "templates" / "daily-news-template.md"
+OUTPUT_DIR =REPO_ROOT / "daily"
 
 
 # ---------------------------
@@ -109,20 +109,21 @@ def render_news_items(news):
 def main():
     today = date.today().isoformat()
     news = get_news_from_api()
-    print(f"DEBUG: Retrieved {len(news)} news items")  # debug info
 
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
     template = TEMPLATE_PATH.read_text(encoding="utf-8")
-    content = template.replace("{{date}}", today)
-    content = content.replace("{{source}}", "newsdata.io")
-    content = content.replace("{{news_items}}", render_news_items(news))
+    content = (
+        template
+        .replace("{{date}}", today)
+        .replace("{{source}}", "newsdata.io")
+        .replace("{{news_items}}", render_news_items(news))
+    )
 
     output_file = OUTPUT_DIR / f"{today}.md"
     output_file.write_text(content, encoding="utf-8")
-    print(f"✅ Daily news written to {output_file.resolve()}")
+    print(f"✅ Daily news written to {output_file}")
 
-# ---------------------------
 if __name__ == "__main__":
     main()
 
