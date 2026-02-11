@@ -9,7 +9,7 @@ import os
 # Paths
 # ---------------------------
 
-VAULT_ROOT = Path(__file__).resolve().parents[1]
+VAULT_ROOT = Path(r"C:\Users\Car\grepos\daily-news-obsidian")
 TEMPLATE_PATH = REPO_ROOT / "templates" / "daily-news-template.md"
 OUTPUT_DIR = REPO_ROOT / "daily"
 
