@@ -33,7 +33,7 @@ jobs:
       - name: Commit and push daily note
         run: |
           git config user.name "github-actions"
-          git config user.email "github-actions@github.com
+          git config user.email "github-actions@github.com"
           git add daily/
           git commit -m "add Daily news" || echo "No changes"
           git push
