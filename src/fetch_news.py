@@ -11,7 +11,7 @@ import os
 
 VAULT_ROOT = Path(__file__).resolve().parents[1]
 TEMPLATE_PATH = REPO_ROOT / "templates" / "daily-news-template.md"
-OUTPUT_DIR =REPO_ROOT / "daily"
+OUTPUT_DIR = REPO_ROOT / "daily"
 
 
 # ---------------------------
@@ -37,7 +37,7 @@ if not TEMPLATE_PATH.exists():
 # ---------------------------
 
 def get_news_from_api():
-    api_key = os.getenv("NEWSDATA_API_KEY") or "pub_ef1790d6e67e436bbf66d10388deb1fc"
+    api_key = os.getenv("NEWS_API_KEY") or "pub_ef1790d6e67e436bbf66d10388deb1fc"
     url = "https://newsdata.io/api/1/latest"
     params = {
         "apikey": api_key,
