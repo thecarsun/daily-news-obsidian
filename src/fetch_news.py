@@ -10,9 +10,6 @@ import requests
 REPO_ROOT = Path(__file__).resolve().parents[1]
 TEMPLATE_PATH = REPO_ROOT / "templates" / "daily-news-template.md"
 OUTPUT_DIR = REPO_ROOT / "daily"
-TEMPLATE_PATH = VAULT_ROOT / "templates" / "daily-news-template.md"
-OUTPUT_DIR = VAULT_ROOT / "daily"
-
 
 # ---------------------------
 # Template
