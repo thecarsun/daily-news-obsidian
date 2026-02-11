@@ -10,6 +10,8 @@ import requests
 REPO_ROOT = Path(__file__).resolve().parents[1]
 TEMPLATE_PATH = REPO_ROOT / "templates" / "daily-news-template.md"
 OUTPUT_DIR = REPO_ROOT / "daily"
+TEMPLATE_PATH = VAULT_ROOT / "templates" / "daily-news-template.md"
+OUTPUT_DIR = VAULT_ROOT / "daily"
 
 
 # ---------------------------
@@ -40,7 +42,7 @@ def get_news_from_api() -> list[dict[str, str]]:
     Fetch top news from newsdata.io.
     Returns a list of dicts with keys: title, source, url, summary
     """
-    api_key = os.getenv("NEWSDATA_API_KEY")
+    api_key = os.getenv("NEWS_API_KEY")
     url = "https://newsdata.io/api/1/latest"
     params = {
         "apikey": api_key or "pub_ef1790d6e67e436bbf66d10388deb1fc",   
@@ -53,7 +55,7 @@ def get_news_from_api() -> list[dict[str, str]]:
 
     try:
         if not api_key:
-            raise RuntimeError("NEWSDATA_API_KEY is not set (GitHub Secret / env var).")
+            raise RuntimeError("NEWS_API_KEY is not set (GitHub Secret / env var).")
 
         resp = requests.get(url, params=params, timeout=15)
         resp.raise_for_status()
