@@ -6,7 +6,7 @@ In my professional work life:
 - I work as a Sr. Technical Program Manager, *currently on a break and looking for my next adventure and team*
 - Some of the areas I've been involved with in the past: 
 	- **Consumer Mobile Apps**: feature development, launches, SDLC, CI/CD, and growth initiatives + more..
-	- **Conesumer HW**: product developement, integration, delivery + more..
+	- **Consumer HW**: product developement, integration, delivery + more..
 	- **AI/NLP/ML/LLM & Gen AI**: POCs, product development, MLOps/LLMOps, Responsible AI + more..
 
 In my personal Life:
