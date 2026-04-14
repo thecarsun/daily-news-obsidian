@@ -17,7 +17,7 @@ The goal is to stay meaningfully informed while reducing the noise and distracti
 - The generated daily-news note will automatically drop into my Obsidian vault 
 - Runs hands-off via (scheduled) CI/CD (Github Actions)
 
-## ARCHETECTURE
+## ARCHITECTURE
 
 ```
 ┌──────────────┐
